@@ -4,7 +4,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
-  workflow_run:
+  workflow_dispatch:
 jobs:
   deploy-to-github-pages:
     # use ubuntu-latest image to run steps on

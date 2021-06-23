@@ -3,7 +3,7 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 jobs:
   deploy-to-github-pages:
@@ -31,6 +31,11 @@ jobs:
         # copy index.html to 404.html to serve the same file when a file is not found
       - name: copy index.html to 404.html
         run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+        # changes the base-tag in index.html to match GitHub Pages repository subdirectory
+      - name: Change base-tag in index.html
+        run: sed -i 's/<base href="\/" \/>/<base href="\/me\/" \/>/g' release/wwwroot/index.html
+
 
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1

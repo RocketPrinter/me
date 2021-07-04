@@ -19,10 +19,6 @@ jobs:
         uses: actions/setup-dotnet@v1.8.0
         with:
           dotnet-version: 5.0.103
-       
-        #Restore NuGet Packages
-      - name: Restore NuGet packages
-        run: dotnet restore
 
         # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project

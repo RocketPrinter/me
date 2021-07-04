@@ -22,7 +22,7 @@ jobs:
        
         #Restore NuGet Packages
       - name: Restore NuGet packages
-        run: nuget restore
+        run: dotnet restore
 
         # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
